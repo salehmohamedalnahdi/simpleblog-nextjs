@@ -30,10 +30,11 @@ body header h2{@apply mx-4 hover:scale-125 transition ease-out duration-500}
 body footer{@apply mt-2 text-center py-6 bg-gray-100  font-semibold text-lg }
 
 /* home +fetchblog.js*/
-.main{@apply mx-2 px-4 my-8 } 
+.main{@apply mx-2 px-4 my-8 }
+.containerOneBlog{@apply hover:shadow-2xl m-2}
 .container-title-delete{@apply relative }
-.title-blog{@apply relative px-2 pt-6 mb-2 font-semibold hover:shadow-lg}
-.content-createdAt{@apply relative text-slate-800 hover:shadow-lg }
+.title-blog{@apply relative px-2 pt-6 mb-2 font-semibold }
+.content-createdAt{@apply relative mb-2 text-slate-800  }
 .artcle{@apply px-2 pb-4 mb-1}
 .createdAt{@apply absolute bottom-0 right-3 text-slate-300 text-sm/4}
 

@@ -17,12 +17,11 @@ export default function FormCreateBlog() {
         if(!formData.title || !formData.content){
           return alert("Plese All Fields Are Requiered ")
         }
-        const response= await fetch('https://jsonplaceholder.typicode.com/posts/', {
+        const response= await fetch('https://simbleblog-backend.onrender.com/create', {
           method: 'POST',
           body: JSON.stringify({
             title:formData.title,
-            body: formData.content,
-            userId: 3,
+            content: formData.content,
           }),
           headers: {
             'Content-type': 'application/json; charset=UTF-8',

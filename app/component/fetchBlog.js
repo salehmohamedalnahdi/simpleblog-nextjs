@@ -1,6 +1,7 @@
 "use client"
 import { useState,useEffect } from "react";
 import ButtonDelete from "./buttonDelete";
+import { format } from 'date-fns';
 
 
 export default function FetchBlog (){
@@ -9,7 +10,7 @@ export default function FetchBlog (){
     fetchData()
   },[])
   const fetchData = async () => {
-    const response= await fetch('https://jsonplaceholder.typicode.com/posts', {
+    const response= await fetch('https://simbleblog-backend.onrender.com/blogs', {
       next: {revalidate: 60}
   });
   if(!response.ok){
@@ -21,12 +22,17 @@ export default function FetchBlog (){
     return (
       <div>
         {data.map(item=>
-           <><div  className="container-title-delete">
-            <h3   className="title-blog">Title:{item.title}</h3>
+           <><div className="containerOneBlog">
+           <div className="container-title-delete">
+            <h3 className="title-blog">Title:{item.title}</h3>
             <ButtonDelete   id={item.id} />
-          </div><div   className="content-createdAt">
-              <article   className="artcle">content: {item.body}</article>
-              <div   className="createdAt"><span>createdAt:</span></div>
+          </div>
+          <div className="content-createdAt">
+              <article className="artcle">content: {item.content}</article>
+              <div className="createdAt">
+                <small>createdAt: {format(new Date(item.createdAt), 'yy-MM-dd HH:mm')}</small>
+              </div>
+            </div>
             </div></>
         )}
     </div>
